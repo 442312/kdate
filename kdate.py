@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 import datetime
+
 x = datetime.datetime.now()
 
 strdate = str(x)
+
 jan = 31
 feb = 28
 mar = 31
@@ -15,7 +17,11 @@ sep = 30
 octb = 31
 nov = 30
 dec = 31
+
+# Добавить условие: если год високосный, то feb=29, иначе - 28
+
 months = [jan, feb, mar, apr, may, jun, jul, aug, sep, octb, nov, dec]
+
 def get_date_int(strdate, months):
     s = strdate.split(" ")
     ldate = s[0].split("-")
@@ -26,7 +32,11 @@ def get_date_int(strdate, months):
         days += months[x]
     days += day
     return(days)
+
+# Добавить условие: если время больше равно 22, то добавить 1 день
+
 curr_date = get_date_int(strdate, months)
+
 def f(i):
     if i > 365:
         return "err"
@@ -36,3 +46,4 @@ def f(i):
         return(32 + i)
 
 print(f(curr_date))
+print(strdate)
