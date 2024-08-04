@@ -1,49 +1,21 @@
 #!/usr/bin/env python3
+
 import datetime
 
-x = datetime.datetime.now()
+year = datetime.datetime.now().year
+now = datetime.datetime.now()
+dr = datetime.datetime(year, 11, 29, 22, 00, 00)
 
-strdate = str(x)
+if (now < dr):
+    delta =  1
+else:
+    delta = 0
 
-jan = 31
-feb = 28
-mar = 31
-apr = 30
-may = 31
-jun = 30
-jul = 31
-aug = 31
-sep = 30
-octb = 31
-nov = 30
-dec = 31
+year = datetime.datetime.now().year - delta
+dr = datetime.datetime(year, 11, 29, 22, 00, 00)
 
-# Добавить условие: если год високосный, то feb=29, иначе - 28
+a = now-dr
 
-months = [jan, feb, mar, apr, may, jun, jul, aug, sep, octb, nov, dec]
+day = int(a.days) + 1
 
-def get_date_int(strdate, months):
-    s = strdate.split(" ")
-    ldate = s[0].split("-")
-    month = int(ldate[1])
-    day = int(ldate[2])
-    days = 0
-    for x in range(month - 1):
-        days += months[x]
-    days += day
-    return(days)
-
-# Добавить условие: если время больше равно 22, то добавить 1 день
-
-curr_date = get_date_int(strdate, months)
-
-def f(i):
-    if i > 365:
-        return "err"
-    if i >= 334:
-        return i - 334 + 1
-    else:
-        return(32 + i)
-
-print(f(curr_date))
-print(strdate)
+print(day)
