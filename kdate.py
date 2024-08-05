@@ -18,4 +18,4 @@ a = now-dr
 
 day = int(a.days) + 1
 
-print(day)
+print(str(day).zfill(3))

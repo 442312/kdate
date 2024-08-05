@@ -16,4 +16,6 @@ sec = delta.total_seconds()
 
 ktime = sec / 86.4
 
-print(int(ktime))
+ktime_int = int(ktime)
+
+print(str(ktime_int).zfill(3))
